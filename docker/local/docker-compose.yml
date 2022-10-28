@@ -1,0 +1,15 @@
+version: '3.9'
+
+# local compose, no env variables introduced
+services:
+  postgres:
+    container_name: flask_app_postgres
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_DB=flask_app_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./lib/postgresql:/var/lib/postgresql/data
